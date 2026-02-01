@@ -329,20 +329,60 @@ A continuación detallamos cada descubrimiento importante que hicimos, con prueb
 - En general, la **combinación de datos personales, infraestructura pública y páginas de prueba** crea vectores claros que podrían facilitar ataques de suplantación de identidad, phishing o acceso a información sensible.
 
 ## 8. Recomendaciones
-<!-- AYUDA (BORRAR): Convertid hallazgos en acciones concretas. Si podéis, asignad responsable sugerido (IT/Seguridad/RRHH/Comunicacion). -->
 
-**Quick wins (0-30 días)**
-<!-- AYUDA (BORRAR): Cambios rápidos: retirar/editar documentos, sanear metadatos, ajustar contenidos públicos, concienciación inmediata. -->
-- [..]
-- [..]
+A continuación se presentan las recomendaciones organizadas por prioridad, alineadas con los hallazgos del apartado 6. Las acciones se clasifican en tres niveles temporales según su urgencia y el riesgo asociado.
 
-**Medio plazo (1-3 meses)**
-<!-- AYUDA (BORRAR): Cambios estructurales: políticas de publicación, revisión periódica, procesos, formación, controles de identidad. -->
-- [..]
+### 8.1 Prioridad 1 (Urgente - 0 a 30 días)
 
-**Mejora continua**
-<!-- AYUDA (BORRAR): Medidas recurrentes: monitorización de menciones, revisiones trimestrales de exposición, playbook OSINT. -->
-- [..]
+**Relacionado con A-01: Subdominios de prueba expuestos**
+- **[IT/Seguridad]** Cerrar el acceso público a subdominios de prueba (`test.hospitalespascual.com`, `www.test.hospitalespascual.com`). Implementar autenticación mediante VPN o firewall que restrinja el acceso únicamente a IPs internas.
+- **[IT]** Auditar y documentar todos los subdominios activos del hospital. Eliminar los que no sean necesarios y proteger aquellos que deban mantenerse operativos.
+- **[IT]** Revisar el subdominio `hospitalespascual.com.josemanuelpascualpascual.es` para determinar su finalidad. Si no es legítimo, solicitar su eliminación o documentar su relación con la entidad.
+
+**Relacionado con A-02: Información personal de empleados expuesta**
+- **[Comunicación/Web]** Retirar teléfonos directos, correos personales y direcciones físicas de empleados de todas las webs públicas. Publicar únicamente datos de contacto generales de la clínica (centralita, correo corporativo genérico).
+- **[RRHH]** Solicitar a los empleados identificados que migren todas las comunicaciones profesionales a correos corporativos (@hospitalespascual.com) y que eviten usar cuentas personales (Gmail, cuentas universitarias) para asuntos laborales.
+- **[RRHH/Seguridad]** Realizar una sesión de concienciación urgente para los 10 empleados identificados, explicando los riesgos de ingeniería social, suplantación de identidad y phishing dirigido. Incluir casos prácticos y señales de alerta.
+- **[RRHH]** Recomendar a empleados en puestos clave (especialmente Director Médico y personal con alta exposición) que limiten la información personal compartida públicamente en redes sociales y perfiles profesionales.
+
+### 8.2 Prioridad 2 (Medio plazo - 1 a 3 meses)
+
+**Relacionado con A-03: Variantes de dominio no registradas**
+- **[IT/Dirección]** Registrar variantes del dominio principal para prevenir ataques de typosquatting: `hospitalpascual.com`, `hospitalespascual.es`, `hospital-san-rafael.com`, entre otras similares. Configurar redirecciones al dominio oficial.
+
+**Relacionado con A-04: Infraestructura visible y certificados SSL**
+- **[IT]** Revisar la configuración de los servidores DNS (dns1-4.sered.net) y activar DNSSEC para proteger contra ataques de envenenamiento de caché DNS.
+- **[IT]** Auditar los certificados SSL de todos los dominios y subdominios. Verificar fechas de caducidad y configurar alertas automáticas de renovación.
+- **[IT]** Limitar la exposición pública de endpoints innecesarios. Revisar qué servicios HTTPS están accesibles desde Internet y proteger aquellos que no deban ser públicos.
+
+**Relacionado con A-05: Detalles técnicos de equipos médicos**
+- **[Comunicación/Web]** Revisar el contenido publicado sobre equipamiento médico en la web. Sustituir información técnica específica (modelos, especificaciones exactas) por descripciones genéricas de capacidades y servicios.
+- **[Dirección]** Establecer una política de publicación de información corporativa que incluya revisión de seguridad obligatoria antes de publicar contenidos sensibles.
+
+**Relacionado con A-06: Direcciones de consultorios privados**
+- **[Comunicación]** Evaluar la necesidad de publicar direcciones exactas de consultorios privados asociados al hospital. Considerar la opción de publicar solo información de contacto general o zonas aproximadas.
+- **[Comunicación]** Crear un directorio de contacto controlado que evite exponer datos personales directos de empleados (teléfonos móviles, correos personales).
+
+**Medidas organizativas generales**
+- **[RRHH]** Organizar un programa de formación en ciberseguridad para todo el personal, con especial énfasis en gestión de identidad digital, uso seguro de redes sociales profesionales y detección de intentos de phishing.
+- **[IT]** Implementar autenticación multifactor (MFA/2FA) obligatoria para todos los empleados que accedan a sistemas corporativos, especialmente correo electrónico y sistemas internos.
+- **[Dirección]** Desarrollar una política formal de separación entre identidades personales y profesionales en redes sociales, con recomendaciones claras para empleados.
+
+### 8.3 Prioridad 3 (Largo plazo - Mejora continua)
+
+**Relacionado con A-07: Metadatos en documentos públicos**
+- **[IT/Comunicación]** Implementar un proceso de saneamiento de metadatos antes de publicar cualquier documento en la web (PDFs, imágenes, hojas de cálculo). Usar herramientas automatizadas para eliminar información de autores, rutas de archivos y software utilizado.
+- **[Dirección]** Establecer políticas internas de revisión de archivos antes de su publicación externa, incluyendo verificación de metadatos.
+
+**Relacionado con A-08: Monitorización de filtraciones**
+- **[Seguridad/IT]** Suscribirse a servicios de monitorización de brechas de datos (ej. Have I Been Pwned Enterprise, servicios comerciales) que alerten automáticamente si el dominio @hospitalespascual.com o correos de empleados aparecen en filtraciones públicas.
+- **[Seguridad/IT]** Establecer un protocolo de respuesta ante detección de credenciales filtradas: cambio inmediato de contraseñas, revisión de accesos y auditoría de logs.
+
+**Medidas de monitorización y auditoría continua**
+- **[Seguridad]** Realizar auditorías OSINT trimestrales (cada 3 meses) para identificar nueva información pública expuesta sobre la clínica, empleados o infraestructura.
+- **[RRHH/Seguridad]** Auditoría semestral (cada 6 meses) de la presencia digital de empleados en puestos críticos (dirección, acceso a datos sensibles, representantes públicos).
+- **[Seguridad]** Desarrollar un playbook de respuesta ante exposición de información sensible, incluyendo pasos de contención, notificación y mitigación.
+- **[IT]** Revisión anual de subdominios activos y servicios públicos, eliminando aquellos que no sean necesarios y documentando adecuadamente los que deban mantenerse.
 
 ## 9. Anexos
 <!-- AYUDA (BORRAR): Trazabilidad. Esta sección facilita la corrección: fuentes, consultas y evidencias enlazadas. -->
