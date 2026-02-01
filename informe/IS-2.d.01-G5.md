@@ -58,96 +58,81 @@ En herramientas que podrían tener funciones activas, solo se usaron los resulta
 - Evitar incluir datos personales innecesarios.
 - Si aparecen datos personales de terceros (p. ej., correos de empleados), aplicar reducción: mostrar solo lo imprescindible o enmascarar parcialmente cuando no aporte valor al riesgo.
 
-## 3. Metodología (ciclo OSINT)
-<!-- AYUDA (BORRAR): Explicad el proceso seguido de forma reproducible (ciclo OSINT) y cómo volvisteis a fases anteriores si fue necesario. -->
+## 3. Metodología (cómo hicimos la investigación)
 
-Esta sección describe el proceso seguido según el ciclo OSINT: planificación, fuentes, adquisición, procesamiento, análisis y difusión.
+Aquí explicamos los pasos que seguimos para hacer nuestra investigación de forma ordenada.
 
-### 3.1 Planificación y dirección
-<!-- AYUDA (BORRAR): Objetivos, preguntas guía y criterios de priorización. Esto demuestra teoría + método. -->
+### 3.1 Planificación
 
-- Preguntas guía (ejemplos):
-  - ¿Qué dominios y marcas usa la entidad?
-  - ¿Existen patrones de email/usuarios visibles públicamente?
-  - ¿Existen documentos públicos con metadatos reveladores?
-  - ¿Hay menciones de tecnologías, proveedores, sedes, organigrama o personal?
-  - ¿La entidad aparece asociada a brechas pasadas o leaks públicos?
-<!-- AYUDA (BORRAR): Ajustad estas preguntas a lo que realmente investigasteis. -->
+- Preguntas que nos hicimos al empezar:
+  - ¿Qué páginas web usa el hospital?
+  - ¿Podemos encontrar correos electrónicos o patrones de cómo crean los usuarios?
+  - ¿Hay documentos públicos que puedan revelar información interna?
+  - ¿Se menciona qué tecnologías usan, con qué empresas trabajan o quiénes son los empleados?
+  - ¿Ha habido alguna filtración de datos del hospital en el pasado?
 
-- Criterios de priorización:
-  - Impacto potencial en ingeniería social.
-  - Reutilización de credenciales/patrones.
-  - Exposición de infraestructura por huella documental/histórica.
-<!-- AYUDA (BORRAR): Indicad 2-4 criterios máximo y cómo los aplicasteis. -->
+- Cómo decidimos qué era importante:
+  - Si la información podría usarse para engañar a alguien del hospital
+  - Si mostraba patrones que se repiten (como cómo crean las contraseñas o usuarios)
+  - Si revelaba detalles de la infraestructura tecnológica del hospital
 
-- Ventana temporal:
-  - Consulta realizada en: [YYYY-MM-DD]
-  - Evidencias archivadas en: `evidencias/` (todas deben quedar enlazadas en el informe).
-<!-- AYUDA (BORRAR): Si usasteis Wayback, indicad el rango de años consultado. -->
+- Cuándo hicimos la investigación:
+  - Realizamos las búsquedas entre el 15 de enero y el 1 de febrero de 2026
+  - Todas las capturas de pantalla y pruebas las guardamos en la carpeta `evidencias/`
 
-### 3.2 Identificación de fuentes
-<!-- AYUDA (BORRAR): Fuentes por categoría. Mejor pocas y justificadas. Indicad cómo se mantiene el enfoque pasivo. -->
+### 3.2 Fuentes que consultamos
 
-Tabla de fuentes (añadir/quitar según aplique):
-<!-- AYUDA (BORRAR): En “Notas (pasivo)” indicad qué aporta la fuente y por qué no implica interacción con los sistemas objetivo. -->
+Estas son las herramientas que usamos:
 
-| Categoría   | Fuente/Herramienta                  | Qué se busca                | Notas (pasivo)              |
+| Tipo de fuente | Herramienta que usamos | Para qué la usamos | Cómo la usamos (sin molestar) |
 |-------------|-------------------------------------|-----------------------------|-----------------------------|
-| Buscadores  | Google / Bing / DuckDuckGo          | menciones, PDFs, indexación | dorks sin acceder a paneles |
-| Archivo web | Wayback Machine                     | versiones antiguas          | solo lectura                |
-| Dominios    | WHOIS/RDAP (consulta)               | datos de registro           | solo consulta pública       |
-| DNS pasivo  | dnsdumpster, securitytrails, etc.   | subdominios/histórico       | sin enumeración activa      |
-| Brechas     | HIBP / DeHashed (si se usa)         | apariciones en brechas      | no intentar logins          |
-| RRSS        | LinkedIn/X/Facebook (público)       | perfiles, roles, nicks      | solo contenido público      |
-| Metadatos   | exiftool/FOCA (sobre docs públicos) | autores, rutas, software    | sobre ficheros públicos     |
+| Buscadores  | Google / Bing / DuckDuckGo          | Buscar documentos y menciones del hospital | Búsquedas normales, sin intentar entrar en paneles |
+| Páginas antiguas | Wayback Machine                     | Ver cómo era la web antes | Solo lectura de archivos históricos |
+| Dominios    | WHOIS (consulta pública)               | Ver quién registró el dominio | Solo consulta pública, no intentamos cambiar nada |
+| DNS  | dnsdumpster, crt.sh   | Buscar subdominios y servidores | Consultas pasivas a bases de datos públicas |
+| Filtraciones     | Have I Been Pwned         | Ver si hubo filtraciones de datos | Solo consulta, no intentamos usar credenciales |
+| Redes sociales        | LinkedIn/Facebook (público)       | Buscar perfiles de empleados | Solo miramos lo que es público |
+| Documentos   | Análisis de PDFs públicos | Ver autores y software usado | Solo documentos ya públicos |
 
-### 3.3 Adquisición (recopilación)
-<!-- AYUDA (BORRAR): Consultas representativas (no todas). Añadid palabras clave, variantes del nombre, ubicaciones, etc. -->
+### 3.3 Búsquedas que hicimos
 
-- Consultas realizadas (resumen):
-  - [Query/dork 1]
-  - [Query/dork 2]
-  - [Query/dork 3]
+- Ejemplos de búsquedas en Google:
+  - Buscamos PDFs del hospital
+  - Buscamos correos que terminaran en @hospitalespascual.com
+  - Buscamos nombres de empleados mencionados públicamente
 
-- Evidencias:
-  - Guardar capturas o PDFs en `evidencias/` con nombres: `YYYY-MM-DD_fuente_tema.ext`
-  - Registrar URL (y, cuando sea útil, captura) y fecha de acceso en cada hallazgo.
-  - Toda evidencia mencionada en el informe debe estar enlazada (URL y/o ruta relativa a `evidencias/`).
-<!-- AYUDA (BORRAR): Si una URL cambia o desaparece, la captura/PDF en `evidencias/` es la prueba de trazabilidad. -->
+- Cómo guardamos las pruebas:
+  - Hicimos capturas de pantalla y las guardamos con la fecha en la carpeta `evidencias/`
+  - Anotamos las URLs y fechas de cada hallazgo
+  - Todo lo que mencionamos en el informe tiene su prueba guardada
 
-### 3.4 Procesamiento y organización
-<!-- AYUDA (BORRAR): Cómo ordenasteis datos: deduplicación, clasificación por categorías y relevancia, y control de calidad. -->
+### 3.4 Cómo organizamos la información
 
-- Normalización:
-  - Deduplicación de correos/teléfonos/dominios.
-  - Agrupación por categoría (contacto, identidad, infra, documentos).
+- Ordenamos los datos:
+  - Eliminamos duplicados (por ejemplo, si un teléfono aparecía varias veces)
+  - Agrupamos por categorías: datos de contacto, identidades, páginas web, documentos
 
-- Criterios de calidad:
-  - Fiabilidad de la fuente (primaria vs. terciaria).
-  - Fecha y vigencia (actual vs. histórico).
-  - Corroboración cruzada (>= 2 fuentes cuando sea posible).
-<!-- AYUDA (BORRAR): Indicad qué hallazgos NO pudisteis corroborar y por qué. -->
+- Cómo verificamos que era fiable:
+  - Miramos si la fuente era de confianza
+  - Comprobamos si la información era actual o antigua
+  - Cuando podíamos, verificamos con al menos 2 fuentes diferentes
 
-### 3.5 Análisis e interpretación
-<!-- AYUDA (BORRAR): Transformad datos en “inteligencia”: vectores habilitados, probabilidad/impacto, y mitigación recomendada. -->
+### 3.5 Análisis de lo que encontramos
 
-- Correlaciones (ejemplos):
-  - Patrones de email + nombres de empleados + roles (posible spear phishing).
-  - Documentos públicos -> metadatos -> nombres de usuario/software.
-  - Dominios/subdominios históricos -> superficies olvidadas.
-<!-- AYUDA (BORRAR): Añadid 2-5 correlaciones reales. Mejor pocas y buenas. -->
+- Conexiones importantes que vimos:
+  - Encontrar correos + nombres + puestos de trabajo = alguien podría hacerse pasar por un jefe para engañar a empleados
+  - Documentos públicos revelan nombres de usuarios y programas que usan internamente
+  - Páginas web antiguas o de prueba olvidadas podrían tener vulnerabilidades
 
-- Valoración de riesgo: usar una escala simple.
-  - Alto: facilita acceso/engaño de alta probabilidad o alto impacto.
-  - Medio: aporta información útil, pero requiere pasos adicionales.
-  - Bajo: información marginal o muy genérica.
-<!-- AYUDA (BORRAR): Justificad el riesgo con una frase (“Alto porque permite suplantación del canal X”, etc.). -->
+- Cómo decidimos el nivel de riesgo:
+  - **Alto:** cuando la información facilita mucho un ataque o engaño
+  - **Medio:** cuando la información es útil para un atacante, pero necesitaría hacer más cosas
+  - **Bajo:** información muy general que no aporta mucho
 
-### 3.6 Difusión
-<!-- AYUDA (BORRAR): Explicad a quién va dirigido el informe y cómo se usará (priorizar mitigaciones y concienciación). -->
+### 3.6 Este informe
 
-- Este informe resume hallazgos, evidencia y recomendaciones accionables.
-- Presentación clara para audiencias técnicas y no técnicas.
+- En este documento presentamos lo que encontramos, con pruebas y recomendaciones prácticas
+- Intentamos explicarlo de forma clara para que lo entienda cualquiera, tenga conocimientos técnicos o no
 
 ## 4. Herramientas utilizadas
 <!-- AYUDA (BORRAR): Incluid solo herramientas realmente usadas y una evidencia por cada una (URL o fichero en `evidencias/`). -->
