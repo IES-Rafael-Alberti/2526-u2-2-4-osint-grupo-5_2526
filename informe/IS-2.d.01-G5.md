@@ -8,25 +8,25 @@
 - Límite de entrega (a): máximo 6 folios (12 caras) en PDF (si aplica)
 
 ## 1. Resumen ejecutivo
-<!-- AYUDA (BORRAR): 8-15 líneas. Debe entenderse sin leer el resto: qué se investigó, hallazgos top y acciones prioritarias. -->
 
-**Objetivo.** Determinar qué información pública existía (antes del incidente supuesto) que podría haber facilitado la fase de reconocimiento de un atacante: identidades digitales, contactos, dominios/subdominios, huella documental (metadatos), menciones públicas y exposiciones derivadas.
+**Objetivo.** En este trabajo hemos investigado qué información del Hospital San Rafael de Cádiz está disponible públicamente en Internet y que un posible atacante podría usar para preparar un ataque: datos de empleados, correos, teléfonos, páginas web, documentos públicos, etc.
 
-**Hallazgos clave (3-7 bullets).**
-<!-- AYUDA (BORRAR): Elegid solo lo más relevante (lo que facilita ingeniería social/reconocimiento). -->
-- [Hallazgo 1 + por qué importa]
-- [Hallazgo 2 + por qué importa]
-- [Hallazgo 3 + por qué importa]
+**Lo que encontramos (principales descubrimientos):**
+- Encontramos información personal de 10 empleados en Internet: teléfonos, correos, apodos que usan en redes sociales, etc. Esta información la podría usar alguien para hacerse pasar por otra persona o engañar a los empleados
+- Descubrimos 4 servidores que gestionan los nombres de dominio del hospital (dns1, dns2, dns3 y dns4.sered.net), todos en la misma empresa externa
+- Vimos que hay varias páginas web relacionadas con el hospital: una para el correo (mail.hospitalespascual.com), otra también para correo (correo.hospitalespascual.com) y una de pruebas (www.test.hospitalespascual.com) que no debería estar visible
+- El hospital publica en su web detalles de los equipos médicos que tiene (escáneres, resonancias, etc.), lo que podría ayudar a alguien a saber qué tecnología usan
+- También encontramos datos personales como dónde estudiaron algunos empleados, direcciones de sus consultas privadas y números de colegiado
 
-**Riesgo global (una frase).**
-<!-- AYUDA (BORRAR): Un diagnóstico breve: nivel + causa principal. -->
-- [Bajo/Medio/Alto] por [motivo principal].
+**Nivel de riesgo que vemos:**
+- Consideramos que el riesgo es **ALTO** porque hay mucha información personal de los empleados accesible, se puede ver toda la infraestructura de Internet del hospital, y hay una página de pruebas que cualquiera puede encontrar.
 
-**Recomendaciones prioritarias (3-5 bullets).**
-<!-- AYUDA (BORRAR): Acciones concretas, medibles y alineadas con los hallazgos. -->
-- [Acción 1]
-- [Acción 2]
-- [Acción 3]
+**Nuestras recomendaciones más importantes:**
+- Quitar o esconder la información personal de los empleados de Internet (teléfonos, correos personales, direcciones)
+- Cerrar o proteger la página de pruebas (test.hospitalespascual.com) que no debería ser pública
+- Dar formación sobre ciberseguridad a los empleados que tienen más información expuesta
+- No publicar tantos detalles técnicos sobre los equipos médicos en la web pública
+- Crear unas normas sobre qué información se puede publicar y cuál no
 
 ## 2. Alcance, supuestos y reglas de compromiso
 <!-- AYUDA (BORRAR): Dejad claro QUÉ se ha hecho y QUÉ no (para demostrar OSINT pasivo). Indicad supuestos y límites. -->
