@@ -120,7 +120,7 @@ Estas son las herramientas que usamos:
 ### 3.5 Análisis de lo que encontramos
 
 - Conexiones importantes que vimos:
-  - Encontrar correos + nombres + puestos de trabajo = alguien podría hacerse pasar por un jefe para engañar a empleados
+  - Al combinar correos electrónicos, nombres completos y puestos de trabajo que encontramos, alguien podría hacerse pasar por un jefe o directivo del hospital para engañar a empleados de menor rango
   - Documentos públicos revelan nombres de usuarios y programas que usan internamente
   - Páginas web antiguas o de prueba olvidadas podrían tener vulnerabilidades
 
