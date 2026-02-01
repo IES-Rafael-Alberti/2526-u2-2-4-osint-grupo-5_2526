@@ -1,18 +1,11 @@
 # IS 2.d.02 (a) - Auditoría de Superficie de Exposición Post-Incidente (OSINT pasivo)
-<!-- AYUDA (BORRAR): Plantilla del informe. Rellenad los campos entre corchetes y eliminad todos los bloques "AYUDA (BORRAR)" antes de entregar. -->
 
 - Entidad objetivo: Clínica de San Rafael de Cádiz
-<!-- AYUDA (BORRAR): Nombre exacto del objetivo (como aparece en fuentes públicas). -->
-- Equipo/Grupo: [Nombre del grupo]
-<!-- AYUDA (BORRAR): Identificador del grupo/equipo. -->
-- Integrantes: [Nombre Apellido (Iniciales)], [..]
-<!-- AYUDA (BORRAR): Lista de integrantes (mismo orden que en la presentación). -->
-- Fecha(s) de investigación: [YYYY-MM-DD a YYYY-MM-DD]
-<!-- AYUDA (BORRAR): Rango de fechas reales en las que hicisteis las consultas OSINT. -->
+- Equipo/Grupo: Grupo 5
+- Integrantes: Sergio González Noria (SGN), Iván Paúl Alba (IPA), Manuel Pérez Romero (MPR), Javier Calvillo Acebedo (JCA).
+- Fecha(s) de investigación: [2026-01-28 a 2026-02-01]
 - Versión: 1.0
-<!-- AYUDA (BORRAR): Subid versión si hay revisiones (1.1, 1.2...). -->
 - Límite de entrega (a): máximo 6 folios (12 caras) en PDF (si aplica)
-<!-- AYUDA (BORRAR): Recordatorio del límite; podéis quitarlo si no os lo piden. -->
 
 ## 1. Resumen ejecutivo
 <!-- AYUDA (BORRAR): 8-15 líneas. Debe entenderse sin leer el resto: qué se investigó, hallazgos top y acciones prioritarias. -->
