@@ -316,13 +316,12 @@ A continuación detallamos cada descubrimiento importante que hicimos, con prueb
 - **Qué recomendamos:** Activar un sistema que avise automáticamente si aparecen correos del hospital en futuras filtraciones. Poner verificación en dos pasos obligatoria para todos
 
 ## 6. Resumen de riesgos
-<!-- AYUDA (BORRAR): Tabla para priorizar: qué arreglar primero (P1), después (P2) y al final (P3). -->
 
 | ID   | Hallazgo (resumen) | Riesgo | Prioridad | Acción recomendada |
 |------|--------------------|--------|-----------|--------------------|
-| A-01 | [..]               | Alto   | P1        | [..]               |
-| A-02 | [..]               | Medio  | P2        | [..]               |
-| A-03 | [..]               | Bajo   | P3        | [..]               |
+| A-01 | Subdominios sensibles y entornos de prueba accesibles públicamente (`test.hospitalespascual.com`, `www.test.hospitalespascual.com`) | Alto | P1 | Revisar y restringir acceso a subdominios de test, aplicar autenticación y/o firewall, monitorizar tráfico externo. |
+| A-02 | Certificados SSL de dominios y subdominios expuestos públicamente | Medio | P2 | Revisar caducidad y configuración de certificados, limitar exposición de endpoints innecesarios, auditar servicios HTTPS. |
+| A-03 | Metadatos detectados en documentos públicos (autores, rutas de software) | Bajo | P3 | Sanear metadatos de documentos antes de publicar, aplicar políticas de revisión interna. |
 
 ## 7. Conclusiones
 <!-- AYUDA (BORRAR): 3-6 bullets: qué superficie pública existía y qué vector pudo facilitar. Sin repetir texto, aportad síntesis. -->
