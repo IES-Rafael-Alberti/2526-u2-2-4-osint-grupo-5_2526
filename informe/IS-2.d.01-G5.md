@@ -149,51 +149,171 @@ Estas son las herramientas que usamos:
 | SpiderFoot    | OSINT automatizado            | Análisis de superficie digital, dominios, subdominios, certificados y hosting | `evidencias/SpiderFoot_HospitalSanRafael.csv`   |
 
 
-## 5. Resultados (hallazgos)
-<!-- AYUDA (BORRAR): Parte principal. Cada hallazgo debe ser verificable y tener evidencia enlazada (URL y/o `evidencias/...`). -->
+## 5. Resultados (lo que encontramos)
 
-Formato recomendado por hallazgo:
-<!-- AYUDA (BORRAR): Copiad esta tabla por cada hallazgo importante (o adaptadla si preferís una tabla global). -->
+A continuación detallamos cada descubrimiento importante que hicimos, con pruebas de dónde lo vimos y por qué creemos que es peligroso.
 
-| Campo           | Contenido                                                                  |
-|-----------------|----------------------------------------------------------------------------|
-| ID              | A-01                                                                       |
-| Categoría       | Contacto / Identidad / Dominio-DNS / Documentos-Metadatos / RRSS / Brechas |
-| Descripción     | [Qué se encontró, claro y verificable]                                     |
-| Evidencia       | [URL] + `evidencias/...`                                                   |
-| Fecha evidencia | [YYYY-MM-DD]                                                               |
-| Impacto         | [Qué permite a un atacante]                                                |
-| Riesgo          | Alto / Medio / Bajo                                                        |
-| Recomendación   | [Mitigación concreta]                                                      |
+### 5.1 Identidades de empleados (apodos, perfiles, cuentas)
 
-### 5.1 Identidades digitales (nicks, perfiles, cuentas)
-<!-- AYUDA (BORRAR): Perfiles corporativos, posibles empleados/roles (solo info pública), y “pivots” para ingeniería social. -->
+**A-01: Dra. Ana De Lacour Juliá**
+- **Categoría:** Identidad
+- **Qué encontramos:** Apodo en redes "anuskalaq", trabaja en Neurología, número de colegiado: 111107282
+- **Dónde lo vimos:** Perfiles públicos profesionales
+- **Cuándo:** 20 de enero de 2026
+- **Por qué es peligroso:** Alguien podría hacerse pasar por ella usando esta información para engañar a otros empleados
+- **Nivel de riesgo:** Alto
+- **Qué recomendamos:** Darle formación sobre cómo detectar intentos de engaño y activar la verificación en dos pasos en sus cuentas
 
-- A-01
-- A-02
+**A-02: Ignacio Ortiz Acero**
+- **Categoría:** Identidad
+- **Qué encontramos:** Es el Director Médico, apodo "sinueioa", número de colegiado: 111105853. Le gusta mucho la Semana Santa, estudió en la Universidad de Cádiz y en Salesianos. Incluso tiene un premio de una hermandad
+- **Dónde lo vimos:** Redes sociales y noticias locales
+- **Cuándo:** 20 de enero de 2026
+- **Por qué es peligroso:** Es un cargo importante y hay MUCHA información personal sobre él. Alguien podría usar sus aficiones para ganarse su confianza y engañarle (por ejemplo, hablándole de Semana Santa)
+- **Nivel de riesgo:** Alto
+- **Qué recomendamos:** Avisarle específicamente de que tenga cuidado con contactos que mencionen sus aficiones personales, podrían estar intentando manipularle
 
-### 5.2 Datos de contacto (emails, teléfonos, estructuras)
-<!-- AYUDA (BORRAR): Patrones de correo (si se infieren), teléfonos publicados, extensiones, formularios de contacto y riesgos asociados. -->
+**A-03: Sandra Brenes Reyes**
+- **Categoría:** Identidad
+- **Qué encontramos:** Psicóloga del hospital, número de colegiado AN08392. Tiene un Gmail personal (psicologasandrabrenes@gmail.com), teléfono móvil (693406050), dirección de su consulta (Avenida Buenavista 29, Vejer de la Frontera) y web personal propia
+- **Dónde lo vimos:** Su página web personal y directorios de psicólogos
+- **Cuándo:** 22 de enero de 2026
+- **Por qué es peligroso:** Su correo personal y teléfono están totalmente expuestos. Alguien puede contactarla directamente haciéndose pasar por un paciente o colega
+- **Nivel de riesgo:** Alto
+- **Qué recomendamos:** Que use solo el correo y teléfono del hospital para temas de trabajo, y proteja mejor sus datos personales
 
-- A-03
-- A-04
+**A-04: Antonio Linares Moreno**
+- **Categoría:** Identidad
+- **Descripción:** Oncología Radioterápica, Nick "Tony Sugar" en luchawike.org, Núm. Colegiado: 111807100
+- **Evidencia:** Perfiles en foros temáticos
+- **Fecha evidencia:** 2026-01-25
+- **Impacto:** Nick en foros permite rastreo de actividad online y construcción de perfil personal
+- **Riesgo:** Medio
+- **Recomendación:** Concienciación sobre separación de identidades personal/profesional
 
-### 5.3 Dominios, subdominios y huella DNS (pasivo)
-<!-- AYUDA (BORRAR): Dominios oficiales/variantes y subdominios observados en fuentes pasivas/históricas. Evitad enumeración activa. -->
+**A-05: Guido Weisman**
+- **Categoría:** Identidad
+- **Descripción:** Medicina Interna, Nicks "batataweis" y "gugaweis", Fellowship
+- **Evidencia:** Perfiles públicos en redes sociales
+- **Fecha evidencia:** 2026-01-25
+- **Impacto:** Múltiples nicks facilitan rastreo de actividad en diferentes plataformas
+- **Riesgo:** Medio
+- **Qué recomendamos:** Revisar qué información tienen publicada en redes sociales y auditar su presencia online
 
-- A-05
-- A-06
+**A-06: Otros empleados que encontramos**
+- Camila Raduan Tozzini (Ginecología, Núm. Colegiado: 080865499)
+- Zulika Riveros (Podología, Tel: 956252624, Dirección: Avenida Padre de las Casas nº 4, Local 14, Cádiz)
+- Juan Manuel Fariñas Varo (Urología, encontramos varias direcciones de sus consultorios)
+- María Súnico Rodríguez (Psicología, Núm. Colegiado: AN06945, correo de la universidad: maria.sunico@uca.es)
+- Jorge Ortega García (Medicina Interna)
+- Manuel Casanova Ramón (Medicina Interna)
 
-### 5.4 Huella documental y metadatos (documentos públicos)
-<!-- AYUDA (BORRAR): Documentos públicos y metadatos relevantes (autor, software, rutas, fechas). Adjuntad evidencia. -->
+### 5.2 Datos de contacto (correos y teléfonos)
 
-- A-07
-- A-08
+**A-07: Muchos teléfonos de empleados publicados**
+- **Categoría:** Contacto
+- **Qué encontramos:** Varios números de teléfono directos:
+  - 956017270 y 956048000 (Dra. Ana De Lacour Juliá)
+  - 693406050 (Sandra Brenes Reyes - su móvil personal)
+  - 956252624 (Zulika Riveros)
+- **Dónde lo vimos:** Directorios de médicos y páginas web públicas
+- **Cuándo:** 20 de enero de 2026
+- **Por qué es peligroso:** Alguien puede llamar directamente a estos empleados haciéndose pasar por un paciente, familiar o compañero para engañarles por teléfono
+- **Nivel de riesgo:** Alto
+- **Qué recomendamos:** Que todas las llamadas pasen por la centralita del hospital, no publicar teléfonos directos de empleados
 
-### 5.5 Brechas y filtraciones (consulta pasiva)
-<!-- AYUDA (BORRAR): Aparición del dominio/correos en brechas conocidas. No incluyáis contraseñas. Priorizad mitigaciones (2FA, rotación, etc.). -->
+**A-08: Correos electrónicos de empleados**
+- **Categoría:** Contacto
+- **Qué encontramos:** Correos que usan para trabajo:
+  - psicologasandrabrenes@gmail.com (Sandra Brenes - ¡su Gmail personal!)
+  - maria.sunico@uca.es (María Súnico - correo de la universidad, no del hospital)
+- **Dónde lo vimos:** Páginas web personales y directorios de universidades
+- **Cuándo:** 22 de enero de 2026
+- **Por qué es peligroso:** Usan cuentas personales o de otras instituciones en lugar del correo del hospital. El hospital no puede proteger esas cuentas y es más fácil engañarles
+- **Nivel de riesgo:** Alto
+- **Qué recomendamos:** Crear una norma para que TODOS usen solo correos del hospital (@hospitalespascual.com) para temas de trabajo
 
-- A-09
+### 5.3 Páginas web y servidores del hospital
+
+**A-09: Página web principal**
+- **Categoría:** Páginas web
+- **Qué encontramos:** 
+  - Página principal: hospitalespascual.com
+  - También se menciona como: hospital-san-rafael
+- **Dónde lo vimos:** Consultas WHOIS (registro de dominios) y búsquedas en Google
+- **Cuándo:** 18 de enero de 2026
+- **Por qué es peligroso:** Solo tienen una página. No han registrado páginas parecidas, así que alguien podría comprar "hospitalpascual.com" o similar para engañar a la gente
+- **Nivel de riesgo:** Medio
+- **Recomendación:** Registrar variantes comunes del dominio para prevenir typosquatting
+
+**A-10: Páginas web adicionales encontradas**
+- **Categoría:** Páginas web
+- **Qué encontramos:** Varias páginas relacionadas con el hospital:
+  - mail.hospitalespascual.com (para el correo electrónico)
+  - correo.hospitalespascual.com (otra también para correo)
+  - www.test.hospitalespascual.com (¡una página de PRUEBAS que está visible!)
+  - hospitalespascual.com.josemanuelpascualpascual.es (página en el dominio de otra persona)
+- **Dónde lo vimos:** En crt.sh (base de datos de certificados) y dnsdumpster.com
+- **Cuándo:** 18 de enero de 2026
+- **Por qué es peligroso:** La página de pruebas NO debería ser pública, puede tener vulnerabilidades o información de desarrollo. La página en dominio ajeno es extraña y podría usarse para confundir a la gente
+- **Nivel de riesgo:** Alto
+- **Qué recomendamos:** Cerrar o proteger urgentemente la página de pruebas. Revisar qué es esa página en el dominio de josemanuelpascualpascual.es
+
+**A-11: Servidores que gestionan la página web**
+- **Categoría:** Páginas web
+- **Qué encontramos:** El hospital usa 4 servidores de una empresa llamada Sered (en España):
+  - dns1.sered.net (185.37.231.10)
+  - dns2.sered.net (46.175.128.146)
+  - dns3.sered.net (193.84.177.223)
+  - dns4.sered.net (193.84.177.125)
+- **Dónde lo vimos:** Consultas públicas de DNS y registros históricos
+- **Cuándo:** 18 de enero de 2026
+- **Por qué es peligroso:** Cualquiera puede ver quién les da el servicio y las direcciones IP. Esto es normal en Internet, pero hay que asegurarse de que estén bien configurados
+- **Nivel de riesgo:** Medio
+- **Qué recomendamos:** Mejorar la seguridad de estos servidores (activar DNSSEC y limitar consultas)
+
+### 5.4 Documentos e información publicada
+
+**A-12: Información sobre equipos médicos**
+- **Categoría:** Información pública
+- **Qué encontramos:** En la web del hospital hay mucha información detallada sobre los equipos que tienen:
+  - TAC (escáneres) con detalles técnicos
+  - Máquinas de Resonancia Magnética de última generación
+  - Equipos de Endoscopia (cámaras flexibles para mirar por dentro)
+  - Ecógrafos modernos
+  - Máquinas de Rayos X de alta calidad
+  - Equipos de laboratorio automatizados (para analizar sangre, orina, genes, etc.)
+- **Dónde lo vimos:** Página web oficial del hospital
+- **Cuándo:** 28 de enero de 2026
+- **Por qué es peligroso:** Si publican qué modelos exactos tienen, alguien puede buscar si esos modelos tienen fallos de seguridad conocidos
+- **Nivel de riesgo:** Medio
+- **Qué recomendamos:** Hablar de forma general sobre "equipos modernos" sin dar detalles técnicos específicos
+
+**A-13: Direcciones de consultorios**
+- **Categoría:** Información pública
+- **Qué encontramos:** Direcciones exactas de consultas privadas:
+  - C/ Feduchy, 8, Cádiz (Juan Manuel Fariñas Varo - varias consultas en esta misma calle)
+  - Avenida Padre de las Casas nº 4, Local 14, Cádiz (Zulika Riveros)
+  - Avenida Buenavista, 29, Centro de Negocios Horizonte, Despacho 11, Vejer de la Frontera (Sandra Brenes)
+- **Dónde lo vimos:** Directorios médicos y páginas web personales
+- **Cuándo:** 25 de enero de 2026
+- **Por qué es peligroso:** Con estas direcciones, alguien podría presentarse en persona haciéndose pasar por paciente o hacer engaños más elaborados
+- **Nivel de riesgo:** Medio
+- **Qué recomendamos:** Valorar si es necesario publicar direcciones tan específicas de consultas privadas asociadas al hospital
+
+### 5.5 Filtraciones de datos (brechas de seguridad)
+
+**A-14: Consulta de filtraciones pasadas**
+- **Categoría:** Filtraciones
+- **Qué encontramos:** 
+  - Sandra Brenes Reyes (psicologasandrabrenes@gmail.com): NO aparece en filtraciones conocidas
+  - María Súnico Rodríguez (maria.sunico@uca.es): No pudimos verificar
+  - Correos @hospitalespascual.com: NO encontramos que se hayan filtrado contraseñas en el pasado
+- **Dónde lo vimos:** Bases de datos públicas de filtraciones (Have I Been Pwned)
+- **Cuándo:** 30 de enero de 2026
+- **Por qué es buena noticia:** No hay contraseñas del hospital filtradas en Internet (que sepamos)
+- **Nivel de riesgo:** Bajo (de momento)
+- **Qué recomendamos:** Activar un sistema que avise automáticamente si aparecen correos del hospital en futuras filtraciones. Poner verificación en dos pasos obligatoria para todos
 
 ## 6. Resumen de riesgos
 <!-- AYUDA (BORRAR): Tabla para priorizar: qué arreglar primero (P1), después (P2) y al final (P3). -->
