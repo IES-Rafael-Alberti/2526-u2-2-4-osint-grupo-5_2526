@@ -1,11 +1,11 @@
 # IS 2.d.02 (a) - Auditoría de Superficie de Exposición Post-Incidente (OSINT pasivo)
 
-- Entidad objetivo: Clínica de San Rafael de Cádiz
-- Equipo/Grupo: Grupo 5
-- Integrantes: Sergio González Noria (SGN), Iván Paúl Alba (IPA), Manuel Pérez Romero (MPR), Javier Calvillo Acebedo (JCA).
-- Fecha(s) de investigación: [2026-01-28 a 2026-02-01]
-- Versión: 1.0
-- Límite de entrega (a): máximo 6 folios (12 caras) en PDF (si aplica)
+- ***Entidad objetivo:*** Clínica de San Rafael de Cádiz
+- ***Equipo/Grupo:*** Grupo 5
+- ***Integrantes:*** Sergio González Noria (SGN), Iván Paúl Alba (IPA), Manuel Pérez Romero (MPR), Javier Calvillo Acebedo (JCA).
+- ***Fecha(s) de investigación:*** [2026-01-28 a 2026-02-01]
+- ***Versión:*** 1.0
+- ***Límite de entrega (a):*** máximo 6 folios (12 caras) en PDF (si aplica)
 
 ## 1. Resumen ejecutivo
 
@@ -29,18 +29,32 @@
 - Crear unas normas sobre qué información se puede publicar y cuál no
 
 ## 2. Alcance, supuestos y reglas de compromiso
-<!-- AYUDA (BORRAR): Dejad claro QUÉ se ha hecho y QUÉ no (para demostrar OSINT pasivo). Indicad supuestos y límites. -->
 
-**Alcance.** Solo OSINT pasivo sobre la entidad (y su huella pública asociada). No se incluye investigación individual (apartado b).
+**Alcance.**
 
-**Fuentes permitidas (ejemplos).** Motores de búsqueda, hemeroteca, registros públicos, perfiles públicos en RRSS, repositorios públicos, documentos públicos, Wayback/archivos, bases de datos de brechas (consulta pasiva).
-<!-- AYUDA (BORRAR): Listad las fuentes reales que usasteis (5-10), no un listado infinito. -->
+Se ha realizado únicamente OSINT pasivo sobre la Clínica San Rafael de Cádiz y su huella pública asociada, es decir, toda la información accesible en Internet relacionada con la entidad: dominios y subdominios, registros DNS históricos, certificados, datos de contacto, perfiles públicos de empleados y menciones en la web.  
+No se incluye investigación individual (apartado b) ni se ha interactuado con los sistemas de la clínica.
 
-**Regla crítica.** Prohibida cualquier acción activa: escaneos, enumeración directa de servicios, pruebas de login, interacción con formularios, generación de tráfico hacia los sistemas objetivo.
-<!-- AYUDA (BORRAR): Si una herramienta pudiera considerarse “activa”, explicad cómo la usasteis de forma pasiva (solo consultas a datos ya recopilados por terceros). -->
+**Fuentes permitidas (usadas en el estudio).**
+
+- Google Search (búsquedas generales y Google Dorks)
+- crt.sh (certificados públicos)
+- dnsdumpster.com (DNS pasivo e histórico)
+- Have I Been Pwned (consulta de correos y dominio en brechas)
+- Sherlock (búsqueda de nicks en redes sociales)
+- TinEye Reverse Image Search (búsqueda inversa de imágenes)
+- Epieos (consultas pasivas de correos y perfiles)  
+- PimEyes (búsqueda facial sobre imágenes públicas)  
+
+Todas estas fuentes se consultaron de forma pasiva, utilizando únicamente información ya disponible públicamente y sin generar tráfico hacia los sistemas de la clínica.
+
+**Regla crítica.**
+
+No se realizaron acciones activas: no se hicieron escaneos de puertos, pruebas de login, enumeración directa de servicios ni interacción con formularios o sistemas de la entidad.  
+En herramientas que podrían tener funciones activas, solo se usaron los resultados pasivos que la propia plataforma ofrecía (por ejemplo, dnsdumpster y crt.sh).
 
 **Minimización y privacidad.**
-<!-- AYUDA (BORRAR): Explicad cómo reducís datos personales (enmascarado parcial, iniciales, no incluir PII innecesaria). -->
+
 - Evitar incluir datos personales innecesarios.
 - Si aparecen datos personales de terceros (p. ej., correos de empleados), aplicar reducción: mostrar solo lo imprescindible o enmascarar parcialmente cuando no aporte valor al riesgo.
 
