@@ -322,11 +322,11 @@ A continuación detallamos cada descubrimiento importante que hicimos, con prueb
 
 ## 7. Conclusiones
 
-- La clínica tenía una **superficie de exposición digital considerable**, con información personal de empleados, correos, teléfonos y direcciones de consultas accesibles públicamente, lo que facilita ataques de ingeniería social.
-- Se detectaron **subdominios de prueba y páginas web adicionales** visibles en Internet, lo que podría permitir que un atacante descubra entornos de desarrollo o staging vulnerables.
-- La **infraestructura de correo y dominios** está completamente visible, incluyendo certificados SSL y servidores asociados, lo que permite mapear la estructura tecnológica de la clínica y planificar ataques dirigidos.
-- Publicar **detalles técnicos de equipos médicos y documentos con metadatos** incrementa el riesgo de exposición, ya que un atacante podría aprovechar vulnerabilidades conocidas en esos modelos o información interna de software.
-- En general, la **combinación de datos personales, infraestructura pública y páginas de prueba** crea vectores claros que podrían facilitar ataques de suplantación de identidad, phishing o acceso a información sensible.
+- La clínica tenía bastante **información personal de empleados accesible públicamente**: correos, teléfonos y direcciones de consultas, algo que hace más fácil que alguien intente engañarles mediante ingeniería social.  
+- Encontramos **subdominios de prueba y páginas extra** que están visibles en Internet, lo que podría dar pistas a un atacante sobre entornos de desarrollo o pruebas.  
+- La **infraestructura de correo y dominios** está completamente a la vista, con servidores y certificados SSL visibles, lo que facilita mapear cómo funciona todo el sistema de la clínica.  
+- Publicar **detalles técnicos de los equipos médicos y documentos con metadatos** también aumenta el riesgo, porque un atacante podría usar esa información para buscar vulnerabilidades conocidas o aprender cómo trabaja la clínica.  
+- En resumen, la **mezcla de datos de empleados, infraestructura visible y páginas de prueba** deja claros vectores que alguien podría usar para suplantación de identidad, phishing o intentar acceder a información sensible.
 
 ## 8. Recomendaciones
 
@@ -385,28 +385,41 @@ A continuación se presentan las recomendaciones organizadas por prioridad, alin
 - **[IT]** Revisión anual de subdominios activos y servicios públicos, eliminando aquellos que no sean necesarios y documentando adecuadamente los que deban mantenerse.
 
 ## 9. Anexos
-<!-- AYUDA (BORRAR): Trazabilidad. Esta sección facilita la corrección: fuentes, consultas y evidencias enlazadas. -->
 
 ### 9.1 Registro de fuentes
-<!-- AYUDA (BORRAR): Fuentes base consultadas (URL + fecha). No hace falta duplicar cada evidencia si ya está en hallazgos, pero sí lo principal. -->
 
 | Fuente   | URL  | Fecha acceso | Nota |
 |----------|------|--------------|------|
-| [Fuente] | [..] | [YYYY-MM-DD] | [..] |
+| Google Search | https://www.google.com | 2026-01-28 a 2026-02-01 | Búsquedas generales y Google Dorks sobre el hospital |
+| crt.sh | https://crt.sh | 2026-01-28 a 2026-02-01 | Certificados SSL de dominios y subdominios |
+| dnsdumpster.com | https://dnsdumpster.com | 2026-01-28 a 2026-02-01 | Información pasiva de subdominios y registros DNS |
+| Have I Been Pwned | https://haveibeenpwned.com | 2026-01-28 a 2026-02-01 | Verificación de correos del hospital en filtraciones |
+| Sherlock | https://github.com/sherlock-project/sherlock | 2026-01-28 a 2026-02-01 | Búsqueda de nicks y alias de empleados en redes sociales |
+| TinEye | https://tineye.com | 2026-01-28 a 2026-02-01 | Búsqueda inversa de imágenes públicas de empleados |
+| Epieos | https://epieos.com | 2026-01-28 a 2026-02-01 | Consulta pasiva de correos y perfiles |
+| PimEyes | https://pimeyes.com | 2026-01-28 a 2026-02-01 | Reconocimiento facial sobre imágenes públicas de empleados |
+| Wayback Machine | https://archive.org/web/ | 2026-01-28 a 2026-02-01 | Consulta de páginas web antiguas |
 
 ### 9.2 Consultas (dorks) empleadas
-<!-- AYUDA (BORRAR): Dejad 5-15 consultas representativas. Deben ser pasivas y reproducibles. -->
 
-(Registrar aquí las consultas utilizadas. Evitar incluir acciones activas o instrucciones de acceso.)
-
-- `site:[dominio] filetype:pdf [palabra clave]`
-- `site:[dominio] "@[dominio]"`
-- `"Clínica San Rafael" "Cádiz" [palabra clave]`
+- `site:hospitalespascual.com filetype:pdf`
+- `site:hospitalespascual.com "@hospitalespascual.com"`
+- `"Clínica San Rafael" "Cádiz" PDF`
+- `site:hospitalespascual.com intitle:index.of`
+- `site:hospitalespascual.com inurl:test`
+- `"Neurología" site:hospitalespascual.com`
+- `"oncología" site:hospitalespascual.com`
+- `"TAC" site:hospitalespascual.com`
+- `"resonancia" site:hospitalespascual.com`
+- `site:linkedin.com "Hospital San Rafael" Cádiz`
+- `"Director Médico" site:hospitalespascual.com`
 
 ### 9.3 Evidencias (índice)
-<!-- AYUDA (BORRAR): Índice con enlaces relativos a ficheros dentro de `evidencias/`. Debe permitir abrir cada evidencia sin buscar. -->
 
-<!-- AYUDA (BORRAR): Ejemplo de enlace: `[2026-01-27 - Google - PDF organigrama](../evidencias/2026-01-27_google_organigrama.pdf)` -->
-
-- `evidencias/`:
-  - `YYYY-MM-DD_fuente_tema.ext` - [descripción]
+- `evidencias/2026-02-01_ExifTool1.png` - Metadatos de documentos públicos (captura 1)
+- `evidencias/2026-02-01_ExifTool2.png` - Metadatos de documentos públicos (captura 2)
+- `evidencias/2026-02-01_ExifTool3.png` - Metadatos de documentos públicos (captura 3)
+- `evidencias/crtsh_hospitalespascual.png` - Certificados SSL asociados a dominios y subdominios
+- `evidencias/dnsdumpster_hospitalespascual.png` - Subdominios y registros DNS pasivos del hospital
+- `evidencias/README.md` - Descripción de las evidencias recopiladas
+- `evidencias/SpiderFoot_HospitalSanRafael.csv` - Resultados de análisis OSINT automatizado
