@@ -3,7 +3,7 @@
 - ***Entidad objetivo:*** Clínica de San Rafael de Cádiz
 - ***Equipo/Grupo:*** Grupo 5
 - ***Integrantes:*** Sergio González Noria (SGN), Iván Paúl Alba (IPA), Manuel Pérez Romero (MPR), Javier Calvillo Acebedo (JCA).
-- ***Fecha(s) de investigación:*** [2026-01-28 a 2026-02-01]
+- ***Fecha(s) de investigación:*** 2026-01-28 a 2026-02-01
 - ***Versión:*** 1.0
 - ***Límite de entrega (a):*** máximo 6 folios (12 caras) en PDF (si aplica)
 
@@ -120,7 +120,7 @@ Estas son las herramientas que usamos:
 ### 3.5 Análisis de lo que encontramos
 
 - Conexiones importantes que vimos:
-  - Al combinar correos electrónicos, nombres completos y puestos de trabajo que encontramos, alguien podría hacerse pasar por un jefe o directivo del hospital para engañar a empleados de menor rango
+  - Encontrar correos + nombres + puestos de trabajo = alguien podría hacerse pasar por un jefe para engañar a empleados
   - Documentos públicos revelan nombres de usuarios y programas que usan internamente
   - Páginas web antiguas o de prueba olvidadas podrían tener vulnerabilidades
 
@@ -135,11 +135,19 @@ Estas son las herramientas que usamos:
 - Intentamos explicarlo de forma clara para que lo entienda cualquiera, tenga conocimientos técnicos o no
 
 ## 4. Herramientas utilizadas
-<!-- AYUDA (BORRAR): Incluid solo herramientas realmente usadas y una evidencia por cada una (URL o fichero en `evidencias/`). -->
 
-| Herramienta   | Tipo                          | Uso concreto | Salida/evidencia               |
-|---------------|-------------------------------|--------------|--------------------------------|
-| [Herramienta] | [Buscador/DNS/Metadatos/etc.] | [Para qué]   | [archivo en evidencias/ o URL] |
+| Herramienta   | Tipo                          | Uso concreto                                           | Salida/evidencia                                   |
+|---------------|-------------------------------|-------------------------------------------------------|---------------------------------------------------|
+| Google Search | Buscador                      | Búsqueda de dominios, subdominios, PDFs y menciones | - |
+| crt.sh        | Certificados SSL              | Comprobación de certificados asociados a dominios    | `evidencias/crtsh_hospitalespascual.png`         |
+| dnsdumpster.com | DNS pasivo                   | Identificación de subdominios y registros históricos| `evidencias/dnsdumpster_hospitalespascual.png`  |
+| Have I Been Pwned | Brechas de datos           | Verificación de emails y dominios en leaks          | -          |
+| Sherlock      | Redes sociales / Identidad     | Búsqueda de nicks y alias de empleados              | -                  |
+| TinEye        | Búsqueda inversa de imágenes  | Verificación de fotos públicas de empleados         | -                   |
+| Epieos        | Correo / perfiles             | Consulta pasiva de correos y perfiles vinculados    | -                |
+| PimEyes       | Reconocimiento facial         | Verificación de imágenes públicas de empleados      | -                  |
+| SpiderFoot    | OSINT automatizado            | Análisis de superficie digital, dominios, subdominios, certificados y hosting | `evidencias/SpiderFoot_HospitalSanRafael.csv`   |
+
 
 ## 5. Resultados (hallazgos)
 <!-- AYUDA (BORRAR): Parte principal. Cada hallazgo debe ser verificable y tener evidencia enlazada (URL y/o `evidencias/...`). -->
